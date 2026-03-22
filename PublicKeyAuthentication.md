@@ -17,10 +17,10 @@ After that, save the public and private key using the buttons **3. Save public k
 Since you will usually use a *username* for the environment (e.g. a dedicated server) you will use the keypair for, use your username so that you end up with two files:
 
 **Public Key**
-- C:\Users\%username%\.ssh\username.public
+- C:\Users\\%username%\\.ssh\username.public
 
 **Private Key**
-- C:\Users\%username%\.ssh\username.private
+- C:\Users\\%username%\\.ssh\username.private
 
 You then will be asked for your *public* key. Never share your private key.
 
