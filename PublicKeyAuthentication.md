@@ -8,7 +8,7 @@ There are multiple algorithms available, whereas most commonly RSA and Ed25519 a
 
 In order to create a Key Pair, you need the program PuTTYgen, see: https://github.com/etkaar/help/tree/main/tools
 
-Choose **1. Ed25519** and then **2.** click **Generate**. Once that is done, two cryptographic values are generated: A private key which obviously must be kept private (if you would share that, it would be the same as sharing your password) and a public key.
+Choose **1. EdDSA**, below select **Ed25519 (255 bits)** and then **2.** click **Generate**. Once that is done, two cryptographic values are generated: A private key which obviously must be kept private (if you would share that, it would be the same as sharing your password) and a public key.
 
 Now, create a new directory on a drive where you are sure, the data is not lost, e.g. **D:\secret-keypairs**.
 
@@ -17,14 +17,14 @@ After that, save the public and private key using the buttons **3. Save public k
 Since you will usually use a *username* for the environment (e.g. a dedicated server) you will use the keypair for, use your username so that you end up with two files:
 
 **Public Key**
-- D:\secret-keypairs\username.public
+- C:\Users\%username%\.ssh\username.public
 
 **Private Key**
-- D:\secret-keypairs\username.private
+- C:\Users\%username%\.ssh\username.private
 
 You then will be asked for your *public* key. Never share your private key.
 
-![puttygen2](https://user-images.githubusercontent.com/40885610/134811837-ade16ca7-1ff1-411c-8ec1-b88cf915476b.png)
+<img width="602" height="471" alt="image" src="https://github.com/user-attachments/assets/180e1627-2d93-459a-aa6d-2d8689a1d880" />
 
 ## 3.0 GNU/Linux
 
