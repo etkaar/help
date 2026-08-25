@@ -235,7 +235,7 @@ END=5
 
 for i in $(seq $START $END)
 do
-	printf '%s\n' "$i"
+	printf '%d\n' "$i"
 done
 ```
 
