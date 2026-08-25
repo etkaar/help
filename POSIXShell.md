@@ -108,7 +108,7 @@ printf '%s\n' "Text with a new line after it."
 
 ### 4.0 Quoted Variables
 
-In the most cases, you want to place double-quotes (`$VAR`) around variables. This also applies to command substitution. Otherwise not all of the content of the variable – including whitespace – is passed, but the variable gets splitted.
+In the most cases, you want to place double-quotes around variables (`"$VAR"`). This also applies to command substitution. Otherwise not the whole content of the variable – including whitespace – is passed, because the shell will split it at the whitespace.
 
 #### Correct
 
@@ -125,6 +125,11 @@ RESULT=$(dpkg-query -s "$PACKAGE_NAME" >/dev/null 2>&1)
 ```shell
 RESULT=$(dpkg-query -s $PACKAGE_NAME >/dev/null 2>&1)
 ```
+
+<sub>
+<b>References</b>
+<br>- https://unix.stackexchange.com/questions/171346/security-implications-of-forgetting-to-quote-a-variable-in-bash-posix-shells
+</sub>
 
 #### Discouraged
 
@@ -217,3 +222,34 @@ EOF
 ```
 
 The variable `__TRAILING` at the end covers the rest of the line in case it has more words then expected.
+
+---
+
+### 8.0 Looping Through a Range
+
+In many examples you would see following code if you would want to loop through a range:
+
+```shell
+START=1
+END=5
+
+for i in $(seq $START $END)
+do
+	printf '%s\n' "$i"
+done
+```
+
+Note that `$END` is *inclusive* (`1, 2, 3, 4, 5`). However, this is **not** POSIX-compliant due to the use of `seq`. Instead, you need to use a `while` loop. With `-le` `$END` is inclusive, with `-lt` exclusive:
+
+```shell
+START=1
+END=5
+
+i=$START
+
+while [ $i -le $END ]
+do
+    printf '%d\n' "$i"
+    i=$(( $i + 1 ))
+done
+```
